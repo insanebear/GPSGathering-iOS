@@ -15,6 +15,8 @@
 		D15564AA2B9698BB00852BEC /* GPSGathering_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D15564A82B9698BB00852BEC /* GPSGathering_iOS.xcdatamodeld */; };
 		D15564AC2B9698BC00852BEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D15564AB2B9698BC00852BEC /* Assets.xcassets */; };
 		D15564AF2B9698BC00852BEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D15564AD2B9698BC00852BEC /* LaunchScreen.storyboard */; };
+		D15564BD2B96B9ED00852BEC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15564BC2B96B9ED00852BEC /* LocationManager.swift */; };
+		D15564CC2B96D70300852BEC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D15564CB2B96D70300852BEC /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		D15564AB2B9698BC00852BEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D15564AE2B9698BC00852BEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D15564B02B9698BC00852BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D15564BC2B96B9ED00852BEC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		D15564CB2B96D70300852BEC /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		F881B62856121D60E2C5C81C /* Pods-GPSGathering-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSGathering-iOS.debug.xcconfig"; path = "Target Support Files/Pods-GPSGathering-iOS/Pods-GPSGathering-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,7 +54,6 @@
 				F881B62856121D60E2C5C81C /* Pods-GPSGathering-iOS.debug.xcconfig */,
 				067765C14CB4147971FD5CB5 /* Pods-GPSGathering-iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -77,14 +80,40 @@
 			children = (
 				D155649F2B9698BB00852BEC /* AppDelegate.swift */,
 				D15564A12B9698BB00852BEC /* SceneDelegate.swift */,
-				D15564A32B9698BB00852BEC /* ViewController.swift */,
+				D15564CD2B96D79700852BEC /* ViewControllers */,
+				D15564CE2B96D79E00852BEC /* Utils */,
 				D15564A52B9698BB00852BEC /* Main.storyboard */,
 				D15564AB2B9698BC00852BEC /* Assets.xcassets */,
 				D15564AD2B9698BC00852BEC /* LaunchScreen.storyboard */,
 				D15564B02B9698BC00852BEC /* Info.plist */,
 				D15564A82B9698BB00852BEC /* GPSGathering_iOS.xcdatamodeld */,
+				D15564BE2B96D50C00852BEC /* Resources */,
 			);
 			path = "GPSGathering-iOS";
+			sourceTree = "<group>";
+		};
+		D15564BE2B96D50C00852BEC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D15564CB2B96D70300852BEC /* InfoPlist.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D15564CD2B96D79700852BEC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D15564A32B9698BB00852BEC /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D15564CE2B96D79E00852BEC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D15564BC2B96B9ED00852BEC /* LocationManager.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		FAC1E51D526769C986145724 /* Frameworks */ = {
@@ -156,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D15564AF2B9698BC00852BEC /* LaunchScreen.storyboard in Resources */,
+				D15564CC2B96D70300852BEC /* InfoPlist.strings in Resources */,
 				D15564AC2B9698BC00852BEC /* Assets.xcassets in Resources */,
 				D15564A72B9698BB00852BEC /* Main.storyboard in Resources */,
 			);
@@ -212,6 +242,7 @@
 			files = (
 				D15564A42B9698BB00852BEC /* ViewController.swift in Sources */,
 				D15564A02B9698BB00852BEC /* AppDelegate.swift in Sources */,
+				D15564BD2B96B9ED00852BEC /* LocationManager.swift in Sources */,
 				D15564AA2B9698BB00852BEC /* GPSGathering_iOS.xcdatamodeld in Sources */,
 				D15564A22B9698BB00852BEC /* SceneDelegate.swift in Sources */,
 			);
@@ -276,7 +307,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -339,7 +370,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -369,6 +400,8 @@
 				DEVELOPMENT_TEAM = 99JHARCHAM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GPSGathering-iOS/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -398,6 +431,8 @@
 				DEVELOPMENT_TEAM = 99JHARCHAM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GPSGathering-iOS/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
