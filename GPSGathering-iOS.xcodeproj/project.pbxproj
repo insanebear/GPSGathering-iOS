@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AD4D3AEFBC8169E5EE1B0BB /* Pods_GPSGathering_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57EEB235715974CCBE6472CB /* Pods_GPSGathering_iOS.framework */; };
 		D15564A02B9698BB00852BEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155649F2B9698BB00852BEC /* AppDelegate.swift */; };
 		D15564A22B9698BB00852BEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15564A12B9698BB00852BEC /* SceneDelegate.swift */; };
 		D15564A42B9698BB00852BEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15564A32B9698BB00852BEC /* ViewController.swift */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		067765C14CB4147971FD5CB5 /* Pods-GPSGathering-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSGathering-iOS.release.xcconfig"; path = "Target Support Files/Pods-GPSGathering-iOS/Pods-GPSGathering-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		57EEB235715974CCBE6472CB /* Pods_GPSGathering_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPSGathering_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D155649C2B9698BB00852BEC /* GPSGathering-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GPSGathering-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D155649F2B9698BB00852BEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D15564A12B9698BB00852BEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		D15564AB2B9698BC00852BEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D15564AE2B9698BC00852BEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D15564B02B9698BC00852BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F881B62856121D60E2C5C81C /* Pods-GPSGathering-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSGathering-iOS.debug.xcconfig"; path = "Target Support Files/Pods-GPSGathering-iOS/Pods-GPSGathering-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AD4D3AEFBC8169E5EE1B0BB /* Pods_GPSGathering_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		263BDDF77AB5708E00ACAA01 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F881B62856121D60E2C5C81C /* Pods-GPSGathering-iOS.debug.xcconfig */,
+				067765C14CB4147971FD5CB5 /* Pods-GPSGathering-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D15564932B9698BB00852BEC = {
 			isa = PBXGroup;
 			children = (
 				D155649E2B9698BB00852BEC /* GPSGathering-iOS */,
 				D155649D2B9698BB00852BEC /* Products */,
+				263BDDF77AB5708E00ACAA01 /* Pods */,
+				FAC1E51D526769C986145724 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +87,14 @@
 			path = "GPSGathering-iOS";
 			sourceTree = "<group>";
 		};
+		FAC1E51D526769C986145724 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57EEB235715974CCBE6472CB /* Pods_GPSGathering_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D15564B32B9698BC00852BEC /* Build configuration list for PBXNativeTarget "GPSGathering-iOS" */;
 			buildPhases = (
+				B2E64BDAF01C8077010A05BF /* [CP] Check Pods Manifest.lock */,
 				D15564982B9698BB00852BEC /* Sources */,
 				D15564992B9698BB00852BEC /* Frameworks */,
 				D155649A2B9698BB00852BEC /* Resources */,
+				5858983C26C12AC1D3617497 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5858983C26C12AC1D3617497 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GPSGathering-iOS/Pods-GPSGathering-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GPSGathering-iOS/Pods-GPSGathering-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GPSGathering-iOS/Pods-GPSGathering-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2E64BDAF01C8077010A05BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPSGathering-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D15564982B9698BB00852BEC /* Sources */ = {
@@ -291,6 +360,7 @@
 		};
 		D15564B42B9698BC00852BEC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F881B62856121D60E2C5C81C /* Pods-GPSGathering-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -319,6 +389,7 @@
 		};
 		D15564B52B9698BC00852BEC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 067765C14CB4147971FD5CB5 /* Pods-GPSGathering-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
