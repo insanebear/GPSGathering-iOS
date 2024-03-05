@@ -17,6 +17,9 @@
 		D15564AF2B9698BC00852BEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D15564AD2B9698BC00852BEC /* LaunchScreen.storyboard */; };
 		D15564BD2B96B9ED00852BEC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15564BC2B96B9ED00852BEC /* LocationManager.swift */; };
 		D15564CC2B96D70300852BEC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D15564CB2B96D70300852BEC /* InfoPlist.strings */; };
+		D1EDBF7A2B96FDCF00052606 /* UserLocation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EDBF782B96FDCF00052606 /* UserLocation+CoreDataClass.swift */; };
+		D1EDBF7B2B96FDCF00052606 /* UserLocation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EDBF792B96FDCF00052606 /* UserLocation+CoreDataProperties.swift */; };
+		D1EDBF7E2B97048D00052606 /* TimeStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EDBF7D2B97048D00052606 /* TimeStringConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		D15564B02B9698BC00852BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D15564BC2B96B9ED00852BEC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		D15564CB2B96D70300852BEC /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		D1EDBF782B96FDCF00052606 /* UserLocation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserLocation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D1EDBF792B96FDCF00052606 /* UserLocation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserLocation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D1EDBF7D2B97048D00052606 /* TimeStringConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStringConverter.swift; sourceTree = "<group>"; };
 		F881B62856121D60E2C5C81C /* Pods-GPSGathering-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSGathering-iOS.debug.xcconfig"; path = "Target Support Files/Pods-GPSGathering-iOS/Pods-GPSGathering-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +86,8 @@
 			children = (
 				D155649F2B9698BB00852BEC /* AppDelegate.swift */,
 				D15564A12B9698BB00852BEC /* SceneDelegate.swift */,
+				D1EDBF7F2B97049000052606 /* Extensions */,
+				D1EDBF7C2B96FDEB00052606 /* Models */,
 				D15564CD2B96D79700852BEC /* ViewControllers */,
 				D15564CE2B96D79E00852BEC /* Utils */,
 				D15564A52B9698BB00852BEC /* Main.storyboard */,
@@ -114,6 +122,23 @@
 				D15564BC2B96B9ED00852BEC /* LocationManager.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		D1EDBF7C2B96FDEB00052606 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D1EDBF782B96FDCF00052606 /* UserLocation+CoreDataClass.swift */,
+				D1EDBF792B96FDCF00052606 /* UserLocation+CoreDataProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D1EDBF7F2B97049000052606 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D1EDBF7D2B97048D00052606 /* TimeStringConverter.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FAC1E51D526769C986145724 /* Frameworks */ = {
@@ -243,7 +268,10 @@
 				D15564A42B9698BB00852BEC /* ViewController.swift in Sources */,
 				D15564A02B9698BB00852BEC /* AppDelegate.swift in Sources */,
 				D15564BD2B96B9ED00852BEC /* LocationManager.swift in Sources */,
+				D1EDBF7B2B96FDCF00052606 /* UserLocation+CoreDataProperties.swift in Sources */,
+				D1EDBF7A2B96FDCF00052606 /* UserLocation+CoreDataClass.swift in Sources */,
 				D15564AA2B9698BB00852BEC /* GPSGathering_iOS.xcdatamodeld in Sources */,
+				D1EDBF7E2B97048D00052606 /* TimeStringConverter.swift in Sources */,
 				D15564A22B9698BB00852BEC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
