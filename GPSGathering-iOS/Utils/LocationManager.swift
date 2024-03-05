@@ -20,7 +20,7 @@ class LocationManager: NSObject {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    func checkPermission() {
+    private func hasLocationPermission() -> Bool {
         switch locationManager.authorizationStatus {
             
         case .notDetermined:
@@ -29,20 +29,29 @@ class LocationManager: NSObject {
         case .restricted, .denied:
             /// Switch screen to the app settings in System Settings
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-            break
         case .authorizedAlways, .authorizedWhenInUse:
             /// start update the device location
-            locationManager.startUpdatingLocation()
+            return true
         @unknown default:
             break
         }
+        return false
     }
     
+    func startTracking() {
+        if hasLocationPermission() {
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func stopTracking() {
+        locationManager.stopUpdatingLocation()
+    }
 }
 
 extension LocationManager: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkPermission()
+        if !hasLocationPermission() { stopTracking() }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

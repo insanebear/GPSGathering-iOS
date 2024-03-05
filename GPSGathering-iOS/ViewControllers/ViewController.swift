@@ -9,6 +9,11 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
+    var isTracking: Bool = false {
+        didSet {
+            updateStatus()
+        }
+    }
     lazy var locationManager: LocationManager = LocationManager.shared
     
     let button: UIButton = {
@@ -18,9 +23,10 @@ class ViewController: UIViewController {
 
         let button = UIButton()
         button.configuration = config
+        button.setTitle("Stop", for: .selected)
+        button.setTitle("Start", for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 10
-        button.setTitle("start", for: .normal)
         
         return button
     } ()
@@ -41,8 +47,17 @@ class ViewController: UIViewController {
     }
 
     @objc func didTapButton(_ sender: UITapGestureRecognizer) {
-        locationManager.checkPermission()
+        isTracking.toggle()
     }
 
+    private func updateStatus() {
+        if isTracking {
+            button.isSelected = true
+            locationManager.startTracking()
+        } else {
+            button.isSelected = false
+            locationManager.stopTracking()
+        }
+    }
 }
 
