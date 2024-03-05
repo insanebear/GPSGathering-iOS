@@ -18,6 +18,7 @@ class LocationManager: NSObject {
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.allowsBackgroundLocationUpdates = true
     }
     
     private func hasLocationPermission() -> Bool {
