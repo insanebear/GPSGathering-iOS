@@ -9,19 +9,14 @@ import UIKit
 import SnapKit
 import CoreData
 
+protocol ViewControllerDelegate {
+    func updateStatus(isTracking: Bool)
+}
+
 class ViewController: UIViewController {
-    var isTracking: Bool = false {
-        didSet {
-            updateStatus()
-        }
-    }
 
     lazy var locationManager: LocationManager = LocationManager.shared
-    var container: NSPersistentContainer! {
-        didSet {
-            locationManager.container = self.container
-        }
-    }
+    var container: NSPersistentContainer!
     
     let button: UIButton = {
         let inset: CGFloat = 20
@@ -52,9 +47,11 @@ class ViewController: UIViewController {
         return button
     } ()
     
+    // MARK: - methods
     init() {
         super.init(nibName: nil, bundle: nil)
         self.setupContainer()
+        self.setupLocationManager()
     }
     
     required init?(coder: NSCoder) {
@@ -63,7 +60,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         setupButtons()
+    }
+    
+    // MARK: setup methods
+    private func setupLocationManager() {
+        self.locationManager.container = self.container
+        self.locationManager.uiDelegate = self
     }
     
     private func setupContainer() {
@@ -71,7 +75,6 @@ class ViewController: UIViewController {
             fatalError("Cannot find appDelegate")
         }
         self.container = appDelegate.persistentContainer
-        
     }
     
     private func setupButtons() {
@@ -90,23 +93,17 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    // MARK: action methods
     @objc func didTapButton(_ sender: UITapGestureRecognizer) {
-        isTracking.toggle()
+        if button.isSelected {
+            locationManager.stopTracking()
+        } else {
+            locationManager.startTracking()
+        }
     }
     
     @objc func didTapPrintButton(_ sender: UITapGestureRecognizer) {
         fetchData()
-    }
-
-    private func updateStatus() {
-        if isTracking {
-            button.isSelected = true
-            locationManager.startTracking()
-        } else {
-            button.isSelected = false
-            locationManager.stopTracking()
-        }
     }
     
     func fetchData() {
@@ -121,3 +118,8 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: ViewControllerDelegate {
+    func updateStatus(isTracking: Bool) {
+        button.isSelected = isTracking
+    }
+}

@@ -12,9 +12,17 @@ import UIKit
 class LocationManager: NSObject {
     static let shared = LocationManager()
     
+    var isTracking: Bool = false {
+        didSet {
+            UserDefaults.standard.set(isTracking, forKey: "isTracking")
+            updateUI()
+        }
+    }
+    
     private let locationManager = CLLocationManager()
     var locations: [NSManagedObject] = [] // to manage CoreData objects
     var container: NSPersistentContainer? = nil
+    var uiDelegate: ViewControllerDelegate? = nil
     
     override init() {
         super.init()
@@ -24,38 +32,52 @@ class LocationManager: NSObject {
         locationManager.allowsBackgroundLocationUpdates = true
     }
     
-    private func hasLocationPermission() -> Bool {
+    func startTracking() {
+        
         switch locationManager.authorizationStatus {
             
         case .notDetermined:
             /// To make work this request properly, `Privacy - Location When In Use Usage Description`in Info.plist is nessasary.
             locationManager.requestWhenInUseAuthorization()
+            
         case .restricted, .denied:
             /// Switch screen to the app settings in System Settings
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
         case .authorizedAlways, .authorizedWhenInUse:
             /// start update the device location
-            return true
+            locationManager.startUpdatingLocation()
+            isTracking.toggle()
         @unknown default:
             break
-        }
-        return false
-    }
-    
-    func startTracking() {
-        if hasLocationPermission() {
-            locationManager.startUpdatingLocation()
         }
     }
     
     func stopTracking() {
         locationManager.stopUpdatingLocation()
+        isTracking.toggle()
+    }
+    
+    func updateUI() {
+        guard let uiDelegate = uiDelegate else { return }
+        uiDelegate.updateStatus(isTracking: isTracking)
+    }
+    
+    private func checkIfTrackingNeedAborting() {
+        let isTracking: Bool = UserDefaults.standard.object(forKey: "isTraking") as? Bool ?? false
+        let stopConditions: [CLAuthorizationStatus] = [.denied, .restricted]
+        let authStatus = locationManager.authorizationStatus
+        
+        if isTracking && stopConditions.contains(authStatus) {
+            print("Under not trackable status. Stopping the tracking.")
+            stopTracking()
+        }
     }
 }
 
 extension LocationManager: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        if !hasLocationPermission() { stopTracking() }
+        // The system calls this the app creates the CLLocationManager instance.
+        checkIfTrackingNeedAborting()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
